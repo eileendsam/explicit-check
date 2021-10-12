@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explicit Check | Check if a song is Explicit or Clean</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <style>
+    /* header {
+      background: url("data:image/svg+xml,%3Csvg width='1440' height='300' viewBox='0 0 1440 300' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1440 30L1392 49.9687C1344 70.3125 1248 109.687 1152 109.969C1056 109.687 960 70.3125 864 70.0312C768 70.3125 672 109.688 576 150C480 190.313 384 229.687 288 235.031C192 240 96 210 48 195L0 180V-5.72205e-06H48C96 -5.72205e-06 192 -5.72205e-06 288 -5.72205e-06C384 -5.72205e-06 480 -5.72205e-06 576 -5.72205e-06C672 -5.72205e-06 768 -5.72205e-06 864 -5.72205e-06C960 -5.72205e-06 1056 -5.72205e-06 1152 -5.72205e-06C1248 -5.72205e-06 1344 -5.72205e-06 1392 -5.72205e-06H1440V30Z' fill='%230069AE'/%3E%3Cpath d='M1440 256L1392 261.3C1344 267 1248 277 1152 277.3C1056 277 960 267 864 240C768 213 672 171 576 133.3C480 96 384 64 288 74.7C192 85 96 139 48 165.3L0 192V6.10352e-05H48C96 6.10352e-05 192 6.10352e-05 288 6.10352e-05C384 6.10352e-05 480 6.10352e-05 576 6.10352e-05C672 6.10352e-05 768 6.10352e-05 864 6.10352e-05C960 6.10352e-05 1056 6.10352e-05 1152 6.10352e-05C1248 6.10352e-05 1344 6.10352e-05 1392 6.10352e-05H1440V256Z' fill='url(%23paint0_linear)'/%3E%3Cpath d='M1440 253.822L1392 247.816C1344 241.357 1248 230.026 1152 205.437C1056 181.301 960 145.041 864 169.177C768 193.766 672 277.617 576 296.087C480 313.878 384 266.286 288 247.816C192 230.026 96 241.357 48 247.816L0 253.822V-8.64538e-06H48C96 -8.64538e-06 192 -8.64538e-06 288 -8.64538e-06C384 -8.64538e-06 480 -8.64538e-06 576 -8.64538e-06C672 -8.64538e-06 768 -8.64538e-06 864 -8.64538e-06C960 -8.64538e-06 1056 -8.64538e-06 1152 -8.64538e-06C1248 -8.64538e-06 1344 -8.64538e-06 1392 -8.64538e-06H1440V253.822Z' fill='url(%23paint1_linear)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear' x1='720' y1='277.3' x2='720' y2='6.10352e-05' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23008AE7' stop-opacity='0.69'/%3E%3Cstop offset='1' stop-color='%23019AFF'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint1_linear' x1='720' y1='300' x2='720' y2='0' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%234EAFF0' stop-opacity='0.59'/%3E%3Cstop offset='1' stop-color='%23019AFF'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A");
+      background-size: cover;
+    } */
+    /* footer {
+      height: 108px;
+      background: url("data:image/svg+xml,%3Csvg width='1440' height='100' viewBox='0 0 1440 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 68.0468L48 61.4123C96 54.8773 192 41.4593 288 33.5825C384 25.5565 480 23.0717 576 32.2655C672 41.4593 768 62.8287 864 69.3637C960 75.9982 1056 68.0468 1152 61.4123C1248 54.8773 1344 49.4107 1392 46.8514L1440 44.1926V99.8523H1392C1344 99.8523 1248 99.8523 1152 99.8523C1056 99.8523 960 99.8523 864 99.8523C768 99.8523 672 99.8523 576 99.8523C480 99.8523 384 99.8523 288 99.8523C192 99.8523 96 99.8523 48 99.8523H0V68.0468Z' fill='url(%23paint0_linear)'/%3E%3Cpath d='M1440 56.7056L1392 47.6746C1344 38.779 1248 20.5142 1152 9.79203C1056 -1.13305 960 -4.51542 864 7.99937C768 20.5142 672 49.6026 576 58.4982C480 67.5292 384 56.7056 288 47.6746C192 38.779 96 31.3378 48 27.8539L0 24.2348V100H48C96 100 192 100 288 100C384 100 480 100 576 100C672 100 768 100 864 100C960 100 1056 100 1152 100C1248 100 1344 100 1392 100H1440V56.7056Z' fill='url(%23paint1_linear)'/%3E%3Cpath d='M1440 44.4444L1392 50C1344 55.5556 1248 66.6667 1152 74.0625C1056 81.5972 960 85.0694 864 79.618C768 73.9583 672 59.375 576 57.3958C480 55.5556 384 66.6667 288 59.2708C192 51.7361 96 26.0417 48 12.9514L0 0V100H48C96 100 192 100 288 100C384 100 480 100 576 100C672 100 768 100 864 100C960 100 1056 100 1152 100C1248 100 1344 100 1392 100H1440V44.4444Z' fill='%234AB7FF'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear' x1='720' y1='26.3889' x2='720' y2='99.8523' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%230099FF' stop-opacity='0.79'/%3E%3Cstop offset='1' stop-color='%230099FF'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint1_linear' x1='720' y1='0' x2='720' y2='100' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%230099FF' stop-opacity='0.79'/%3E%3Cstop offset='1' stop-color='%230099FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A");
+      background-size: cover;
+    } */
+    button {
+      margin: 0 auto;
+      background-color: blue;
+    }
+    p {
+      text-align: center;
+    }
+    li {
+      display: inline-block;
+      padding-right: 25px;
+    }
+  </style>
+  <body class="font-primary min-h-screen relative">
+    <header class="w-full bg-no-repeat p-8">
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <a href=index.html>
+                <img src="asset/img/cursing.png"
+                class="inline mr-2"
+                width="50"
+                height="50">
+              </a>
+            </li>
+            <li><a href=about.html>About</a></li>
+          </ul>
+      </nav>
+    </div>
+      <form class="w-full py-8 flex flex-col">
+        <label for="artist" class="w-full flex justify-center items-center">
+          <input
+            type="text"
+            id="artist"
+            class="w-full md:w-1/2 px-4 py-2 my-4 rounded active:shadow-lg shadow-black border-2 focus:border-blue-600 focus:outline-none"
+            placeholder="Artist"
+            required
+          />
+        </label>
+        <label for="song" class="w-full flex justify-center items-center">
+          <input
+            type="text"
+            id="song"
+            class="w-full md:w-1/2 px-4 py-2 my-4 rounded active:shadow-lg shadow-black border-2 focus:border-blue-600 focus:outline-none"
+            placeholder="Song"
+            required
+          />
+        </label>
+
+          <!-- <input
+            type="checkbox"
+            id="words"
+            class="w-full md:w-1/2 px-4 py-2 my-4 rounded active:shadow-lg shadow-black border-2 focus:border-blue-600 focus:outline-none"
+            value="sevenDirtyWords"
+            checked
+          />
+          <label 
+          for="words">
+          Seven Dirty Words
+        </label> -->
+        <div>
+        <p>Explicit Check will always check for the 
+          <a href=https://en.wikipedia.org/wiki/Seven_dirty_words><u>Seven Dirty Words</u></a>.
+        You can add additional words below (each separated by a space):</p>
+        </div>
+
+        <label for="additionalWords" class="w-full flex justify-center items-center">
+          <input
+            type="text"
+            id="additionalWords"
+            class="w-full md:w-1/2 px-4 py-2 my-4 rounded active:shadow-lg shadow-black border-2 focus:border-blue-600 focus:outline-none"
+            placeholder="Additional Words"
+            />
+        </label>
+
+        <button
+          class="px-4 py-2 my-4 bg-white rounded outline-black font-semibold active:shadow-none"
+        >
+          <svg
+            class="inline mr-2"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 0C4.895 0 4 0.895 4 2V4V6V12.1758C3.67908 12.0608 3.3409 12.0014 3 12C2.20435 12 1.44129 12.3161 0.87868 12.8787C0.316071 13.4413 0 14.2044 0 15C0 15.7956 0.316071 16.5587 0.87868 17.1213C1.44129 17.6839 2.20435 18 3 18C3.79565 18 4.55871 17.6839 5.12132 17.1213C5.68393 16.5587 6 15.7956 6 15V6H15V12.1758C14.6791 12.0608 14.3409 12.0014 14 12C13.2044 12 12.4413 12.3161 11.8787 12.8787C11.3161 13.4413 11 14.2044 11 15C11 15.7956 11.3161 16.5587 11.8787 17.1213C12.4413 17.6839 13.2044 18 14 18C14.7956 18 15.5587 17.6839 16.1213 17.1213C16.6839 16.5587 17 15.7956 17 15V6V4V0H6Z"
+              fill="black"
+            />
+          </svg>
+
+          Check
+        </button>
+      </form>
+    </header>
+    <main class="p-8 pb-28 text-center">
+      <script type="module" src="index.js">
+       </script>
+    </main>
+    <footer
+      class="absolute bottom-0 left-0 right-0 flex justify-center items-end"
+    >
+      <div class="m-2 text-white">
+        <img src="asset/img/stars-cute.gif" width="50" height="50">
+      </div>
+    </footer>
+  </body>
+  
+</html>

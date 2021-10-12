@@ -1,0 +1,24 @@
+{
+  "name": "lyrics-finder",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "tailwindcss build src/styles.css -o public/styles.css",
+    "build": "parcel build public/index.html --no-minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "genius-lyrics-api": "^3.2.0",
+    "parcel-bundler": "^1.12.5",
+    "tailwindcss": "^2.2.8"
+  },
+  "devDependencies": {
+    "cssnano": "^5.0.8",
+    "postcss": "^8.3.6"
+  },
+  "description": ""
+}
